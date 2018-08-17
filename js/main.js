@@ -33,6 +33,22 @@ function updateBoardView() {
         for (var j = 0; j < 4; j++) {
             $("#grid-container").append('<div class="number-cell" id="number-cell-' + i + '-' + j + '")</div>')
             var theNumberCell = $('#number-cell-' + i + '-' + j)
+
+            if (board[i][j] == 0) {
+                theNumberCell.css('width', '0px')
+                theNumberCell.css('height', '0px')
+                theNumberCell.css('top', getPosTop(i, j) + 50)
+                theNumberCell.css('left', getPosLeft(i, j) + 50)
+            } else {
+                theNumberCell.css('width','100px')
+                theNumberCell.css('height','100px')
+                theNumberCell.css('top',getPosTop(i,j))
+                theNumberCell.css('left',getPosLeft(i,j))
+                theNumberCell.css('background-color',getNumberBackGroundColor(board[i][j]))
+theNumberCell.css('color',getNumberColor(board[i][j]))
+theNumberCell.text(board[i][j])
+            }
+
         }
     }
 
