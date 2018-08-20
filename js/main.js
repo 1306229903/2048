@@ -46,7 +46,7 @@ function updateBoardView() {
                 theNumberCell.css('height', '100px')
                 theNumberCell.css('top', getPosTop(i, j))
                 theNumberCell.css('left', getPosLeft(i, j))
-                theNumberCell.css('background-color', getNumberBackGroundColor(board[i][j]))
+                theNumberCell.css('background-color', getNumberBackgroundColor(board[i][j]))
                 theNumberCell.css('color', getNumberColor(board[i][j]))
                 theNumberCell.text(board[i][j])
             }
@@ -80,33 +80,68 @@ function generateOneNumber() {
 }
 
 // 响应用户操作
-$(document).keydown(function(event){
-    switch (event.keyCode){
+$(document).keydown(function(event) {
+    switch (event.keyCode) {
         case 37:
-        if(moveLeft()){
-            generateOneNumber()
-            isgameover()
-        }
-        break
+            if (moveLeft()) {
+                generateOneNumber()
+                isgameover()
+            }
+            break
         case 38:
-        if(moveUp()){
-            generateOneNumber()
-            isgameover()
-        }
-        break;
+            if (moveUp()) {
+                generateOneNumber()
+                isgameover()
+            }
+            break;
         case 39:
-        if(moveRight()){
-            generateOneNumber()
-            isgameover()
-        }
-        break
+            if (moveRight()) {
+                generateOneNumber()
+                isgameover()
+            }
+            break
         case 40:
-        if(moveDown()){
-            generateOneNumber()
-            isgameover()
-        }
-        break
+            if (moveDown()) {
+                generateOneNumber()
+                isgameover()
+            }
+            break
         default:
-        break
+            break
     }
 })
+
+function isgameover() {
+
+}
+
+function moveLeft() {
+
+    // 判断能否向左移动
+    if (!canMoveLeft(board)) {
+        return false
+    }
+
+    for (var i = 0; i < 4; i++) {
+        for (var j = 1; j < 4; j++) {
+            if (board[i][j] !== 0) {
+                for (var k = 0; k < j; k++) {
+                    if (board[i][k] === 0 && noBlockHorizontal(i, k, j, board)) {
+                        showMoveAnimation(i, j, i, k)
+                        board[i][k] = board[i][j]
+                        board[i][j] = 0
+                        continue
+                    } else if (board[i][k] === board[i][j] && noBlockHorizontal(i, k, j, board)) {
+                        showMoveAnimation(i, j, i, k)
+                        board[i][k] += board[i][j]
+                        board[i][j] = 0
+                        continue
+                    }
+                }
+            }
+        }
+
+    }
+    setTimeout(updateBoardView, 200)
+    return true
+}
