@@ -45,6 +45,9 @@ function nospace( board ){
 }
 
 function canMoveLeft( board ){
+// 判断左边是否没有数字
+// 判断左边数字是否和自己相等
+
 
     for( var i = 0 ; i < 4 ; i ++ )
         for( var j = 1; j < 4 ; j ++ )
@@ -87,7 +90,7 @@ function canMoveDown( board ){
 
     return false;
 }
-
+// 判断水平方向上是否有障碍物
 function noBlockHorizontal( row , col1 , col2 , board ){
     for( var i = col1 + 1 ; i < col2 ; i ++ )
         if( board[row][i] != 0 )
@@ -95,6 +98,7 @@ function noBlockHorizontal( row , col1 , col2 , board ){
     return true;
 }
 
+// 判断垂直方向上是否有障碍物
 function noBlockVertical( col , row1 , row2 , board ){
     for( var i = row1 + 1 ; i < row2 ; i ++ )
         if( board[i][col] != 0 )
