@@ -1,10 +1,15 @@
 
+documentWidth = window.screen.availWidth; // 获取屏幕宽度
+gridContainerWidth = 0.92 * documentWidth; // 分别计算游戏界面结构每一块需要的宽度
+cellSideLength = 0.18 * documentWidth;
+cellSpace = 0.04*documentWidth;
+
 function getPosTop( i , j ){
-    return 20 + i*120;
+    return cellSpace + i*( cellSpace + cellSideLength );
 }
 
 function getPosLeft( i , j ){
-    return 20 + j*120;
+    return cellSpace + j*( cellSpace + cellSideLength );
 }
 
 function getNumberBackgroundColor( number ){
@@ -45,10 +50,9 @@ function nospace( board ){
 }
 
 function canMoveLeft( board ){
-// 判断左边是否没有数字
-// 判断左边数字是否和自己相等
 
-
+      // 判断左边是否没有数字
+    // 判断左边数字是否和自己相等
     for( var i = 0 ; i < 4 ; i ++ )
         for( var j = 1; j < 4 ; j ++ )
             if( board[i][j] != 0 )
@@ -97,7 +101,6 @@ function noBlockHorizontal( row , col1 , col2 , board ){
             return false;
     return true;
 }
-
 // 判断垂直方向上是否有障碍物
 function noBlockVertical( col , row1 , row2 , board ){
     for( var i = row1 + 1 ; i < row2 ; i ++ )
