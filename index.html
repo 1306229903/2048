@@ -3,17 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>2048</title>
     <link rel="stylesheet" type="text/css" href="./css/main.css">
 </head>
 
 <body>
+    <audio src="./music/start.mp3" autoplay id="audio"></audio>
+
     <header>
-        <h1>2048</h1>
-        <a href="" onclick="newgame" id="newgamebutton">New Game</a>
-        <p>score : <span id="score">0</span></p>
+        <div class="header-top">
+            <h1>2048</h1>
+            <p>
+                <span class="score-title">最高纪录</span>
+                <span id="record" class="number">0</span>
+            </p>
+            <p>
+                <span class="score-title">所得分数</span>
+                <span id="score" class="number">0</span>
+            </p>
+        </div>
+        <div class="header-bottom">
+            <p>玩法：使用方向键或触碰移动方块</p>
+            <a href="#" id="newgamebutton">新游戏</a>
+        </div>
+
+
     </header>
 
     <div id="grid-container">
@@ -36,11 +52,15 @@
         <div class="grid-cell" id="grid-cell-3-1"></div>
         <div class="grid-cell" id="grid-cell-3-2"></div>
         <div class="grid-cell" id="grid-cell-3-3"></div>
+        <div id="game-over">
+            <p>Game over!</p>
+        </div>
     </div>
     <script src="./js/jquery.js"></script>
     <script src="./js/support.js"></script>
     <script src="./js/showanimation.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/controlmusic.js"></script>
 </body>
 
 </html>
