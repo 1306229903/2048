@@ -146,7 +146,10 @@ function updateScore(score) {
         sessionStorage.setItem('key', score)
         $('#record').text(sessionStorage.getItem('key'))
     }
+
     $('#score').text(score);
+    $('#game-over-scores').text(score);
+    $('#game-over-record').text(sessionStorage.getItem('key'));
 }
 
 // 分数鼓励语

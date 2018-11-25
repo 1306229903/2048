@@ -107,6 +107,7 @@ header p {
 
 #encourage-animation {
   position: fixed;
+  opacity: 0;
   font-size: 40px;
   animation: move-bottom-right 5s;
 }
@@ -125,7 +126,8 @@ header p {
   }
 
   100% {
-    left: 100%;
+    bottom: 50%;
+    left: 90%;
     opacity: 0;
   }
 }
@@ -208,12 +210,12 @@ header p {
   z-index: 100;
   display: none;
 }
-#game-over > p {
+#game-over > .wrap-p {
   display: table-cell;
   width: 100%;
   margin: 0;
   vertical-align: middle;
-  font-size: 60px;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
   color: #776e65;
@@ -249,7 +251,7 @@ header p {
     width: 80px;
     font-size: 14px;
   }
-  #game-over > p {
-    font-size: 40px;
+  #game-over > .wrap-p {
+    font-size: 30px;
   }
 }
