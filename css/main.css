@@ -18,12 +18,12 @@ header h1 {
   color: #776e65;
 }
 
-header #newgamebutton {
+header #newgamebutton,header #newgamebutton2 {
   display: block;
-  margin: 10px auto;
+  margin: 10px 1px;
 
-  width: 100px;
-  padding: 10px 10px;
+  width: 80px;
+  padding: 10px;
   background-color: #8f7a66;
 
   font-family: Arial;
@@ -33,7 +33,7 @@ header #newgamebutton {
   text-decoration: none;
 }
 
-header #newgamebutton:hover {
+header #newgamebutton:hover,header #newgamebutton2:hover, {
   background-color: #9f8b77;
 }
 
@@ -150,7 +150,7 @@ header p {
 .header-bottom > p {
   font-size: 14px;
   text-align: left;
-  width: 60%;
+  width: 55%;
 }
 
 #grid-container {
@@ -246,10 +246,13 @@ header p {
   .header-top > p > .number {
     font-size: 18px;
   }
+  .header-bottom > p {
+    width: 40%;
+  }
 
-  header #newgamebutton {
-    width: 80px;
-    font-size: 14px;
+  header #newgamebutton,header #newgamebutton2 {
+    width: 60px;
+    font-size: 12px;
   }
   #game-over > .wrap-p {
     font-size: 30px;

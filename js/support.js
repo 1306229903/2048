@@ -51,6 +51,27 @@ function getNumberBackgroundColor(number) {
     return "black";
 }
 
+
+function getNumberText( number ){
+    switch( number ){
+        case 2:return "小白";
+        case 4:return "实习生";
+        case 8:return "程序猿";
+        case 16:return "项目经理";
+        case 32:return "架构师";
+        case 64:return "技术经理";
+        case 128:return "高级经理";
+        case 256:return "技术总监";
+        case 512:return "副总裁";
+        case 1024:return "CTO";
+        case 2048:return "总裁";
+        case 4096:return "#a6c";
+        case 8192:return "#93c";
+    }
+
+    return "black";
+}
+
 function getNumberColor(number) {
     if (number <= 4)
         return "#776e65";

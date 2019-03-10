@@ -5,7 +5,8 @@ function showNumberWithAnimation(i, j, randNumber) {
 
     numberCell.css('background-color', getNumberBackgroundColor(randNumber));
     numberCell.css('color', getNumberColor(randNumber));
-    numberCell.text(randNumber);
+    model==='true' ? numberCell.text(getNumberText(randNumber)) : numberCell.text(randNumber)
+
 
     numberCell.addClass('new-number-cell')
     numberCell.animate({

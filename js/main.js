@@ -1,6 +1,7 @@
 var board = new Array(); // 游戏驱动数据数组
 var score = 0; // 分数统计
 var hasConflicted = new Array(); // 优化叠加时多个同时叠加，只能相邻叠加
+var model = localStorage.getItem('model') // 游戏模式
 
 // 四个开始结束坐标
 var startx = 0;
@@ -20,7 +21,8 @@ $('#record').text(sessionStorage.getItem('key'));
 $(document).ready(function () {
     prepareForMobile(); // 计算自适应
     newgame();
-    document.getElementById("newgamebutton").addEventListener("click", palyStartMusic); // 初始音乐
+    document.getElementById("newgamebutton").addEventListener("click", palyStartMusic1); // 初始音乐
+    document.getElementById("newgamebutton2").addEventListener("click", palyStartMusic2); // 初始音乐
 });
 
 function prepareForMobile() {
@@ -71,7 +73,7 @@ function init() {
     updateBoardView(); // 更新前端视图
 
     updateScore(0);
-    $('#game-over').css('display','none')
+    $('#game-over').css('display', 'none')
     score = 0;
 }
 
@@ -96,7 +98,8 @@ function updateBoardView() {
                 theNumberCell.css('left', getPosLeft(i, j));
                 theNumberCell.css('background-color', getNumberBackgroundColor(board[i][j]));
                 theNumberCell.css('color', getNumberColor(board[i][j]));
-                theNumberCell.text(board[i][j]);
+                model==='true' ? theNumberCell.text(getNumberText(board[i][j])) : theNumberCell.text(board[i][j])
+
             }
 
             hasConflicted[i][j] = false;
@@ -248,7 +251,7 @@ function isgameover() {
 
 function gameover() {
     playEndMusic()
-    $('#game-over').css('display','table')
+    $('#game-over').css('display', 'table')
 
 }
 
